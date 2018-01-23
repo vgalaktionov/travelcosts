@@ -132,6 +132,7 @@ func loggedToday() bool {
 	if err != nil {
 		log.Fatalf("Could not open %s, Error: %s", c.OutputFileName, err)
 	}
+	defer f.Close()
 
 	reader := csv.NewReader(f)
 	records, err := reader.ReadAll()
